@@ -4,7 +4,10 @@
 	"homepage": "http://fatfreeframework.com/",
 	"license": "GPL-3.0",
 	"require": {
-		"php": ">=5.3.6"
+		"php": ">=5.3.6",
+		"google/recaptcha": "~1.1",
+		"phpmailer/phpmailer": "~5.2",
+		"stripe/stripe-php": "^4.3"
 	},
 	"repositories": [
 		{
@@ -14,5 +17,8 @@
 	],
 	"autoload": {
 		"files": ["lib/base.php"]
+	},
+	"config": {
+		"vendor-dir": "lib"
 	}
 }
