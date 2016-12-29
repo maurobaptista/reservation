@@ -1,0 +1,36 @@
+<div class="col-xs-12 title" style="background-color: {{ @title_bg_color }}; color: {{ @title_tx_color }};">
+    {{ @text }} Information
+</div>
+
+<section class="col col-xs-12">
+    <label for="location[{{ @trip }}][{{ @partial }}_location]" class="col-sm-4">{{ @text }} Location {{ @is_required('location|'.@partial.'|location') }}</label>
+    <div class="col-sm-8">
+        <label class="select"> 
+            <select name="location[{{ @trip }}][{{ @partial }}_location]" id="{{ @partial }}_{{ @trip }}_location" class="select_location"  {{ @is_confirmation }}>
+                <check if="{{ @location_not_set != false }}">
+                    <option value="">{{ @location_not_set }}</option>
+                </check>
+                <repeat group="{{ @locations }}" key="{{ @location_id }}" value="{{ @location }}">
+                    <option value="{{ @location_id }}" <check if="{{ @info[location][@trip][@partial.'_location'] == @location_id }}">selected</check>>{{ @location }}</option>
+                </repeat>
+            </select>
+            <i></i>
+        </label>
+    </div>
+</section>
+<section id="{{ @partial }}_{{ @trip }}_location1" class="{{ @partial }}_{{ @trip }}_location_section" style="display: <check if="{{ @info[location][@trip][@partial.'_location'] != 1}}"><true>none</true><false>block</false></check>;">
+    <include href="reservation/_partials/_location/airport.htm"/>
+</section>
+<section id="{{ @partial }}_{{ @trip }}_location2" class="{{ @partial }}_{{ @trip }}_location_section" style="display: <check if="{{ @info[location][@trip][@partial.'_location'] != 2}}"><true>none</true><false>block</false></check>;">
+    <include href="reservation/_partials/_location/hotel.htm"/>
+</section>
+<section id="{{ @partial }}_{{ @trip }}_location3" class="{{ @partial }}_{{ @trip }}_location_section" style="display: <check if="{{ @info[location][@trip][@partial.'_location'] != 3}}"><true>none</true><false>block</false></check>;">
+    <include href="reservation/_partials/_location/other_location.htm"/>
+</section>
+<section id="{{ @partial }}_{{ @trip }}_location_datetime" class="{{ @partial }}_{{ @trip }}_location_section" style="display: <check if="{{ @info[location][@trip][@partial.'_location'] != ''}}"><true>block</true><false>none</false></check>;">
+    <check if="{{ (@partial == 'pick_up') }}">
+        <include href="reservation/_partials/_common/date.htm"/>
+        <include href="reservation/_partials/_common/time.htm"/>
+    </check>
+    <include href="reservation/_partials/_common/special_instructions.htm"/>
+</section>

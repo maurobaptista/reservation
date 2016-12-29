@@ -1,0 +1,120 @@
+<html>
+    <head>
+        <style>
+            @media only screen 
+                and (max-width: 768px) {
+                    .half { width: 100%!important; }
+            }
+        </style>
+    </head>
+    <body style="font-family: 'Open sans',Arial,sans-serif; font-size: 14px;">
+        <check if="{{ @for == 'admin'}}">
+            <true>
+                <section>
+                    <div style="background-color: {{ @title_bg_color }}; color: {{ @title_tx_color }};margin-bottom: 10px;line-height: 40px;font-size: 20px;padding-left: 5px;margin: 0;padding: 0;width: 100%; float: left;">Reservation Information</div>
+                    <div style="margin: 0;padding: 0;width: 100%;float: left;position: relative;color: #666;" >
+                        <div style="line-height: 30px;">Reservation ID: {{@info[reservation][id]}}</div>
+                        <div style="line-height: 30px;">Reservation Code: {{@info[reservation][uniq_id]}}</div>
+                        <div style="line-height: 30px;">User IP: {{@info[reservation][ip]}}</div>
+                    </div>
+                </section>
+            </true>
+            <false>
+                <div style="margin: 0;padding: 0;width: 100%;float: left;position: relative;color: #666; line-height: 30px;">Thanks for your reservation. <strong>Reservation Code: {{@info[reservation][uniq_id]}}</strong><BR>
+            </false>
+        </check>
+        <section>
+            <div style="background-color: {{ @title_bg_color }}; color: {{ @title_tx_color }};margin-bottom: 10px;line-height: 40px;font-size: 20px;padding-left: 5px;margin: 0;padding: 0;width: 100%; float: left;">Passenger Information</div>
+            <div style="margin: 0;padding: 0;width: 50%;float: left;position: relative;color: #666;" class="half" >
+                <div style="line-height: 30px;">First Name: {{@info[passenger][first_name]}}</div>
+                <div style="line-height: 30px;">Last Name: {{@info[passenger][last_name]}}</div>
+                <div style="line-height: 30px;">Phone Number: {{@info[passenger][phone_number]}}</div>
+                <div style="line-height: 30px;">E-mail Address: {{@info[passenger][email_address]}}</div>
+            </div>
+            <div style="margin: 0;padding: 0;box-sizing: content-box;width: 50%;float: left;position: relative;color: #666;" class="half" >
+                <div style="line-height: 30px;">Number of Passenger: {{@info[passenger][number_of_passenger]}}</div>
+                <div style="line-height: 30px;">Number of Luggage: {{@info[passenger][number_of_luggage]}}</div>
+                <div style="line-height: 30px;">Vehicle Type: {{@info[passenger][vehicle_type]}}</div>
+                <div style="line-height: 30px;">Type of Service: {{@info[passenger][type_of_service]}}</div>
+            </div>
+        </section>
+        <section>
+            <div style="margin: 0;padding: 0;width: 50%;float: left;position: relative;color: #666;" class="half" >
+                <div>
+                    <div style="background-color: {{ @title_bg_color }}; color: {{ @title_tx_color }};margin-bottom: 10px;line-height: 40px;font-size: 20px;padding-left: 5px;margin: 0;padding: 0;width: 100%;">Pick Up Information</div>
+                </div>
+                <repeat group="{{ @info[location][trip][pick_up_info] }}" key="{{ @key }}" value="{{ @value }}">
+                    <div style="line-height: 30px;">{{ ucwords(str_replace('_',' ',@key)) }}: {{ @value }}</div>
+                </repeat>
+                <div style="line-height: 30px;">Date: {{ @info[location][trip][pick_up_date] }}</div>
+                <div style="line-height: 30px;">Time: {{ @info[location][trip][pick_up_time] }}</div>
+                <div style="line-height: 30px;">Special Instruction: {{ @info[location][trip][pick_up_instructions] }}</div>
+
+            </div>
+            <div style="margin: 0;padding: 0;box-sizing: content-box;width: 50%;float: left;position: relative;color: #666;" class="half" >
+                <div style="background-color: {{ @title_bg_color }}; color: {{ @title_tx_color }};margin-bottom: 10px;line-height: 40px;font-size: 20px;padding-left: 5px;margin: 0;padding: 0;width: 100%;">Drop Off Information</div>
+                <repeat group="{{ @info[location][trip][drop_off_info] }}" key="{{ @key }}" value="{{ @value }}">
+                    <div style="line-height: 30px;">{{ ucwords(str_replace('_',' ',@key)) }}: {{ @value }}</div>
+                </repeat>
+                <div style="line-height: 30px;">Special Instruction: {{ @info[location][trip][drop_off_instructions] }}            </div>
+        </section>
+        <check if="{{ @info[choose_round_trip] == 1}}">
+            <section>
+                <div style="background-color: {{ @title_bg_color }}; color: {{ @title_tx_color }};margin-bottom: 10px;line-height: 40px;font-size: 20px;padding-left: 5px;margin: 0;padding: 0;width: 100%; float: left;">Round Trip Information</div>
+                <div style="margin: 0;padding: 0;width: 50%;float: left;position: relative;color: #666;" class="half" >
+                    <div>
+                        <div style="background-color: {{ @title_bg_color }}; color: {{ @title_tx_color }};margin-bottom: 10px;line-height: 40px;font-size: 20px;padding-left: 5px;margin: 0;padding: 0;width: 100%;">Pick Up Information</div>
+                    </div>
+                    <repeat group="{{ @info[location][roundtrip][pick_up_info] }}" key="{{ @key }}" value="{{ @value }}">
+                        <div style="line-height: 30px;">{{ ucwords(str_replace('_',' ',@key)) }}: {{ @value }}</div>
+                    </repeat>
+                    <div style="line-height: 30px;">Date: {{ @info[location][roundtrip][pick_up_date] }}</div>
+                    <div style="line-height: 30px;">Time: {{ @info[location][roundtrip][pick_up_time] }}</div>
+                    <div style="line-height: 30px;">Special Instruction: {{ @info[location][roundtrip][pick_up_instructions] }}</div>
+                </div>
+                <div style="margin: 0;padding: 0;box-sizing: content-box;width: 50%;float: left;position: relative;color: #666;" class="half" >
+                    <div>
+                        <div style="background-color: {{ @title_bg_color }}; color: {{ @title_tx_color }};margin-bottom: 10px;line-height: 40px;font-size: 20px;padding-left: 5px;margin: 0;padding: 0;width: 100%;">Drop Off Information</div>
+                    </div>
+                    <repeat group="{{ @info[location][roundtrip][drop_off_info] }}" key="{{ @key }}" value="{{ @value }}">
+                        <div style="line-height: 30px;">{{ ucwords(str_replace('_',' ',@key)) }}: {{ @value }}</div>
+                    </repeat>
+                    <div style="line-height: 30px;">Special Instruction: {{ @info[location][roundtrip][drop_off_instructions] }}
+                </div>
+            </section>
+        </check>        
+        <section>
+            <div style="background-color: {{ @title_bg_color }}; color: {{ @title_tx_color }};margin-bottom: 10px;line-height: 40px;font-size: 20px;padding-left: 5px;margin: 0;padding: 0;width: 100%; float: left;">Payment Information</div>
+            <check if="{{ @info[payment][cc_on_file]}}">
+                <true>
+                    <div style="margin: 0;padding: 0;width: 100%;float: left;position: relative;color: #666;">
+                        <div style="line-height: 30px;">Credit Card is on file</div>
+                    </div>
+                </true>
+                <false>
+                    <check if="{{ @for == 'admin'}}">
+                        <true>
+                            <div style="margin: 0;padding: 0;width: 100%;float: left;position: relative;color: #666;" >
+                                <div style="line-height: 30px;">Company: {{@info[payment][cc_company]}}</div>
+                                <div style="line-height: 30px;">Number: {{@info[payment][cc_number]}}</div>
+                                <div style="line-height: 30px;">Exp. Date: {{@info[payment][cc_exp_date]}} | CVV: {{@info[payment][cc_cvv]}}</div>
+                                <div style="line-height: 30px;">Name: {{@info[payment][cc_name]}}</div>
+                            </div>
+                        </true>
+                        <false>
+                            <div style="margin: 0;padding: 0;width: 100%;float: left;position: relative;color: #666;">
+                                <div style="line-height: 30px;">Credit Card information hidden for security purpose</div>
+                            </div>
+                        </false>
+                    </check>
+                </false>
+            </check>
+        </section>
+        <section style="padding-top: 40px; padding-bottom: 30px;">
+            <HR>
+            <div style="line-height: 30px;"><strong>{{ @company_name }}</strong></div>
+            <div style="line-height: 30px;">{{ @company_phone }}</div>
+            <div style="line-height: 30px;"><a href="{{ @company_website }}" target="_blank">{{ @company_website }}</div>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,79 @@
+<set hotel_icon  = 'bed' />
+<set hotel_field = 'name' />
+<set hotel_text  = 'Hotel Name' />
+<section class="col col-xs-12">
+    <label for="location[{{ @trip }}][{{ @partial }}_info][hotel_{{@hotel_field}}]" class="col-sm-4">{{@hotel_text}} {{ @is_required('location|'.@partial.'|hotel|'.@hotel_field) }}</label>
+    <div class="col-sm-8">
+        <label class="input">
+            <i class="icon-append fa fa-{{ @hotel_icon}}"></i>
+            <input type="text" name="location[{{ @trip }}][{{ @partial }}_info][hotel_{{@hotel_field}}]" placeholder="{{@hotel_text}}" value="{{ @info['location'][@trip][@partial.'_info']['hotel_'.@hotel_field] }}" {{ @is_confirmation }}>
+        </label>
+    </div>
+</section>
+
+<set hotel_icon  = 'bed' />
+<set hotel_field = 'address' />
+<set hotel_text  = 'Address' />
+<section class="col col-xs-12">
+    <label for="location[{{ @trip }}][{{ @partial }}_info][hotel_{{@hotel_field}}]" class="col-sm-4">{{@hotel_text}} {{ @is_required('location|'.@partial.'|hotel|'.@hotel_field) }}</label>
+    <div class="col-sm-8">
+        <label class="input">
+            <i class="icon-append fa fa-{{ @hotel_icon}}"></i>
+            <input type="text" name="location[{{ @trip }}][{{ @partial }}_info][hotel_{{@hotel_field}}]" placeholder="{{@hotel_text}}" value="{{ @info['location'][@trip][@partial.'_info']['hotel_'.@hotel_field] }}" {{ @is_confirmation }}>
+        </label>
+    </div>
+</section>
+
+<set hotel_icon  = 'bed' />
+<set hotel_field = 'city' />
+<set hotel_text  = 'City' />
+<section class="col col-xs-12">
+    <label for="location[{{ @trip }}][{{ @partial }}_info][hotel_{{@hotel_field}}]" class="col-sm-4">{{@hotel_text}} {{ @is_required('location|'.@partial.'|hotel|'.@hotel_field) }}</label>
+    <div class="col-sm-8">
+        <label class="input">
+            <i class="icon-append fa fa-{{ @hotel_icon}}"></i>
+            <input type="text" name="location[{{ @trip }}][{{ @partial }}_info][hotel_{{@hotel_field}}]" placeholder="{{@hotel_text}}" value="{{ @info['location'][@trip][@partial.'_info']['hotel_'.@hotel_field] }}" {{ @is_confirmation }}>
+        </label>
+    </div>
+</section>
+
+<set hotel_icon  = 'bed' />
+<set hotel_field = 'state' />
+<set hotel_text  = 'State' />
+<section class="col col-xs-12">
+    <label for="location[{{ @trip }}][{{ @partial }}_info][hotel_{{@hotel_field}}]" class="col-sm-4">{{@hotel_text}} {{ @is_required('location|'.@partial.'|hotel|'.@hotel_field) }}</label>
+    <div class="col-sm-8">
+        <label class="input">
+            <i class="icon-append fa fa-{{ @hotel_icon}}"></i>
+            <input type="text" name="location[{{ @trip }}][{{ @partial }}_info][hotel_{{@hotel_field}}]" placeholder="{{@hotel_text}}" value="{{ @info['location'][@trip][@partial.'_info']['hotel_'.@hotel_field] }}" {{ @is_confirmation }}>
+        </label>
+    </div>
+</section>
+
+<set hotel_icon  = 'bed' />
+<set hotel_field = 'zip_code' />
+<set hotel_text  = 'Zip Code' />
+<section class="col col-xs-12">
+    <label for="location[{{ @trip }}][{{ @partial }}_info][hotel_{{@hotel_field}}]" class="col-sm-4">{{@hotel_text}} {{ @is_required('location|'.@partial.'|hotel|'.@hotel_field) }}</label>
+    <div class="col-sm-8">
+        <label class="input">
+            <i class="icon-append fa fa-{{ @hotel_icon}}"></i>
+            <input type="text" name="location[{{ @trip }}][{{ @partial }}_info][hotel_{{@hotel_field}}]" placeholder="{{@hotel_text}}" value="{{ @info['location'][@trip][@partial.'_info']['hotel_'.@hotel_field] }}" {{ @is_confirmation }}>
+        </label>
+    </div>
+</section>
+
+<check if="{{ (@partial == 'pick_up') }}">
+    <set hotel_icon  = 'bed' />
+    <set hotel_field = 'room' />
+    <set hotel_text  = 'Room Number' />
+    <section class="col col-xs-12">
+        <label for="location[{{ @trip }}][{{ @partial }}_info][hotel_{{@hotel_field}}]" class="col-sm-4">{{@hotel_text}} {{ @is_required('location|'.@partial.'|hotel|'.@hotel_field) }}</label>
+        <div class="col-sm-8">
+            <label class="input">
+                <i class="icon-append fa fa-{{ @hotel_icon}}"></i>
+                <input type="text" name="location[{{ @trip }}][{{ @partial }}_info][hotel_{{@hotel_field}}]" placeholder="{{@hotel_text}}" value="{{ @info['location'][@trip][@partial.'_info']['hotel_'.@hotel_field] }}" {{ @is_confirmation }}>
+            </label>
+        </div>
+    </section>
+</check>

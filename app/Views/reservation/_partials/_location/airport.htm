@@ -1,0 +1,56 @@
+<section class="col col-xs-12">
+    <label for="location[{{ @trip }}][{{ @partial }}_info][airport_select]" class="col-sm-4">Airport {{ @is_required('location|'.@partial.'|airport|select') }}</label>
+    <div class="col-sm-8">
+        <label class="select"> 
+            <select name="location[{{ @trip }}][{{ @partial }}_info][airport_select]" class="select_location" {{ @is_confirmation }}>
+                <check if="{{ (@airport_not_set != false) }}">
+                    <option value="">{{ @airport_not_set }}</option>
+                </check>
+                <repeat group="{{ @airports }}" value="{{ @airport }}">
+                    <option value="{{ @airport }}" <check if="{{ (@airport == @info['location'][@trip][@partial.'_info']['airport_select']) }}">selected</check>>{{ @airport }}</option>
+                </repeat>
+            </select>
+            <i></i>
+        </label>
+    </div>
+</section>
+
+
+<set airport_icon  = 'plane' />
+<set airport_field = 'airline' />
+<set airport_text  = 'Airline Company' />
+<section class="col col-xs-12">
+    <label for="location[{{ @trip }}][{{ @partial }}_info][airport_{{@airport_field}}]" class="col-sm-4">{{@airport_text}} {{ @is_required('location|'.@partial.'|airport|'.@airport_field) }}</label>
+    <div class="col-sm-8">
+        <label class="input">
+            <i class="icon-append fa fa-{{ @airport_icon}}"></i>
+            <input type="text" name="location[{{ @trip }}][{{ @partial }}_info][airport_{{@airport_field}}]" placeholder="{{@airport_text}}" value="{{ @info['location'][@trip][@partial.'_info']['airport_'.@airport_field] }}" {{ @is_confirmation }}>
+        </label>
+    </div>
+</section>
+
+<set airport_field = 'flight' />
+<set airport_text  = 'Fligth Number' />
+<section class="col col-xs-12">
+    <label for="location[{{ @trip }}][{{ @partial }}_info][airport_{{@airport_field}}]" class="col-sm-4">{{@airport_text}} {{ @is_required('location|'.@partial.'|airport|'.@airport_field) }}</label>
+    <div class="col-sm-8">
+        <label class="input">
+            <i class="icon-append fa fa-{{ @airport_icon }}"></i>
+            <input type="text" name="location[{{ @trip }}][{{ @partial }}_info][airport_{{@airport_field}}]" placeholder="{{@airport_text}}" value="{{ @info['location'][@trip][@partial.'_info']['airport_'.@airport_field] }}" {{ @is_confirmation }}>
+        </label>
+    </div>
+</section>
+
+<check if="{{ (@partial == 'pick_up') }}">
+    <set airport_field = 'arriving' />
+    <set airport_text  = 'Arriving From' />
+    <section class="col col-xs-12">
+        <label for="location[{{ @trip }}][{{ @partial }}_info][airport_{{@airport_field}}]" class="col-sm-4">{{@airport_text}} {{ @is_required('location|'.@partial.'|airport|'.@airport_field) }}</label>
+        <div class="col-sm-8">
+            <label class="input">
+                <i class="icon-append fa fa-{{ @airport_icon }}"></i>
+                <input type="text" name="location[{{ @trip }}][{{ @partial }}_info][airport_{{@airport_field}}]" placeholder="{{@airport_text}}" value="{{ @info['location'][@trip][@partial.'_info']['airport_'.@airport_field] }}" {{ @is_confirmation }}>
+            </label>
+        </div>
+    </section>
+</check>
