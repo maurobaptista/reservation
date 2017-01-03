@@ -1,9 +1,0 @@
-<section class="col col-xs-12">
-    <label for="location[{{ @trip }}][{{ @partial }}_date]" class="col-sm-4">{{@text}} Date {{ @is_required('location|'.@partial.'|date') }}</label>
-    <div class="col-sm-8">
-        <label class="input">
-            <i class="icon-append fa fa-calendar"></i>
-            <input type="text" name="location[{{ @trip }}][{{ @partial }}_date]" placeholder="{{@text}} Date" value="{{ @info['location'][@trip][@partial.'_date'] }}" id="{{ @trip }}_{{ @partial }}_date" {{ @is_confirmation }}>
-        </label>
-    </div>
-</section>
