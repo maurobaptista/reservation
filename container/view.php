@@ -10,6 +10,22 @@ $container['view'] = function ($container) {
     $view->addExtension(new Slim\Views\TwigExtension($container['router'], $basePath));
 
     $view->getEnvironment()->addFilter(new Twig_SimpleFilter('env', 'env'));
+    $view->getEnvironment()->addFilter(new Twig_SimpleFilter('asset', function ($file) {
+        return '/view/assets/'.$file;
+    }));
+    $view->getEnvironment()->addFilter(new Twig_SimpleFilter('is_required', function ($fields) {               
+        $fields = explode('|', $fields);
+        $required = [];
+
+        foreach ($fields as $field) {
+            $required = (isset($required[$field])) ? isset($required[$field]) : false;
+        }
+
+        if (isset($required['required'][0]) && $required['required'][0] === true) return '<span class="required">*</span>';
+    }));
+    $view->getEnvironment()->addFilter(new Twig_SimpleFilter('disable', function ($status) {               
+        if ($status) return 'disabled';
+    }));
 
     return $view;
 };

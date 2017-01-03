@@ -1,0 +1,16 @@
+<fieldset>
+    <div class="row">
+
+        {% set partial = 'pick_up' %}
+        {% set text = 'Pick-up' %}
+        {% set trip = 'trip' %}
+        <div class="col-md-6">
+            {% include "reservation/_partial/_location/location.html" %}
+        </div>
+        {% set partial = 'drop_off' %}
+        {% set text = 'Drop-Off' %}
+        <div class="col-md-6">
+            {% include "reservation/_partial/_location/location.html" %}
+        </div>
+    </div>
+</fieldset>

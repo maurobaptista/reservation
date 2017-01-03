@@ -3,6 +3,6 @@
 Define App information
  */
 return [
-    'displayErrorDetails' => env('DEBUG', false),
+    'displayErrorDetails' => env('debug', false),
     'addContentLengthHeader' => false
 ];

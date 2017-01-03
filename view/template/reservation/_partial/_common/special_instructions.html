@@ -1,0 +1,8 @@
+<section class="col col-xs-12">
+    <label for="location[{{ @trip }}][{{ @partial }}_instructions]" class="col-sm-4">Special Instructions {{ @is_required('location|'.@partial.'|instructions') }}</label>
+    <div class="col-sm-8">
+        <label class="textarea">
+            <textarea rows="3" name="location[{{ @trip }}][{{ @partial }}_instructions]" placeholder="Special Instructions" {{ @is_confirmation }}>{{ @info['location'][@trip][@partial.'_instructions'] }}</textarea>
+        </label>
+    </div>
+</section>

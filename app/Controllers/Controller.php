@@ -20,6 +20,6 @@ class Controller {
     public function view($response, $file, $args = [])
     {
         $file = str_replace('.', '/', $file);
-        $this->ci->view->render($response, $file.'.phtml', $args);
+        $this->ci->view->render($response, $file.'.html', $args);
     }
 }
