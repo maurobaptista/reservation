@@ -44,11 +44,11 @@ $required_fields = [
                 'city'          => ['required' => ['true', 'Please enter the hotel city']],
                 'state'         => ['required' => ['true', 'Please enter the hotel state']],
                 'zip_code'      => ['required' => ['true', 'Please enter the hotel zip code']],
-                'room'          => ['required' => ['true', 'Please enter your room number']], 
+                'room'          => ['required' => []], 
             ],
             'other'             => [
                 'address'       => ['required' => ['true', 'Please enter the address']],
-                'apt'           => ['required' => ['true', 'Please enter the apt/suite number']], 
+                'apt'           => ['required' => []], 
                 'city'          => ['required' => ['true', 'Please enter the city']],
                 'state'         => ['required' => ['true', 'Please enter the state']],
                 'zip_code'      => ['required' => ['true', 'Please enter the zip code']],
@@ -73,7 +73,7 @@ $required_fields = [
             ],
             'other'             => [
                 'address'       => ['required' => ['true', 'Please enter the address']],
-                'apt'           => ['required' => ['true', 'Please enter the apt/suite number']], 
+                'apt'           => ['required' => []], 
                 'city'          => ['required' => ['true', 'Please enter the city']],
                 'state'         => ['required' => ['true', 'Please enter the state']],
                 'zip_code'      => ['required' => ['true', 'Please enter the zip code']],
