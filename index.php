@@ -4,6 +4,7 @@
    global $f3;
    $f3 = require('lib/base.php');
    $f3->config('config/config.ini');
+   $f3->config('config/route.ini');
 
 	/**
 	*	Function check if field is required and print or not the *

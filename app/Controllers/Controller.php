@@ -4,17 +4,6 @@ class Controller {
     protected $f3;
     protected $db;
  
-    function beforeroute() {
-		$this->f3->set('message',false);
-		
-		//Load variables from info folder
-		$this->call_basic();
-    }
- 
-    function afterroute() {
-		echo Template::instance()->render('layout.htm');
-    }
- 
     function __construct() {
 
 		$f3 = Base::instance();

@@ -1,6 +1,17 @@
 <?php
 class ReservationController extends Controller {
 
+    function beforeroute() {
+		$this->f3->set('message',false);
+		
+		//Load variables from info folder
+		$this->call_basic();
+    }
+ 
+    function afterroute() {
+		echo Template::instance()->render('layout.htm');
+    }
+    
 	/**
 	*	Call main reservations page
 	*	@return view
